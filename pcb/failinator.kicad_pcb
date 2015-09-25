@@ -2,7 +2,7 @@
 
   (general
     (links 66)
-    (no_connects 41)
+    (no_connects 57)
     (area 95.449999 67.949999 160.550001 124.050001)
     (thickness 1.6)
     (drawings 9)
@@ -557,11 +557,11 @@
     (pad 1 thru_hole circle (at -5.25 0) (size 1.7 1.7) (drill 1.2) (layers *.Cu *.Mask F.SilkS)
       (net 1 GND))
     (pad 2 thru_hole circle (at -1.75 0) (size 1.7 1.7) (drill 1.2) (layers *.Cu *.Mask F.SilkS)
-      (net 12 /GREEN_P))
+      (net 5 /RED_P))
     (pad 3 thru_hole circle (at 1.75 0) (size 1.7 1.7) (drill 1.2) (layers *.Cu *.Mask F.SilkS)
       (net 9 /AMBER_P))
     (pad 4 thru_hole circle (at 5.25 0) (size 1.7 1.7) (drill 1.2) (layers *.Cu *.Mask F.SilkS)
-      (net 5 /RED_P))
+      (net 12 /GREEN_P))
   )
 
   (module Pin_Headers:Pin_Header_Straight_1x10 (layer F.Cu) (tedit 0) (tstamp 5604EA07)
