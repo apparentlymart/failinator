@@ -231,45 +231,45 @@ Wire Wire Line
 	9850 1650 9900 1650
 Wire Wire Line
 	9850 1750 9900 1750
-Text Label 9250 5100 2    60   ~ 0
+Text Label 9250 4400 2    60   ~ 0
 DIG0
-Text Label 9250 6250 2    60   ~ 0
+Text Label 9250 5550 2    60   ~ 0
 DIG1
 Wire Wire Line
 	9250 5100 9300 5100
 Wire Wire Line
 	9250 6250 9300 6250
-Text Label 9250 5550 2    60   ~ 0
-SEGE
-Text Label 9250 4400 2    60   ~ 0
+Text Label 9250 5650 2    60   ~ 0
 SEGE
 Text Label 9250 4500 2    60   ~ 0
+SEGE
+Text Label 9250 4600 2    60   ~ 0
 SEGD
-Text Label 9250 5650 2    60   ~ 0
+Text Label 9250 5750 2    60   ~ 0
 SEGD
+Text Label 9250 5100 2    60   ~ 0
+SEGDP
+Text Label 9250 6250 2    60   ~ 0
+SEGDP
 Text Label 9250 4700 2    60   ~ 0
-SEGDP
-Text Label 9250 5850 2    60   ~ 0
-SEGDP
-Text Label 9250 4800 2    60   ~ 0
 SEGC
 Text Label 9250 4900 2    60   ~ 0
 SEGB
 Text Label 9250 5000 2    60   ~ 0
 SEGA
-Text Label 9250 5950 2    60   ~ 0
+Text Label 9250 5850 2    60   ~ 0
 SEGC
 Text Label 9250 6050 2    60   ~ 0
 SEGB
 Text Label 9250 6150 2    60   ~ 0
 SEGA
-Text Label 9250 5200 2    60   ~ 0
-SEGG
 Text Label 9250 5300 2    60   ~ 0
-SEGF
-Text Label 9250 6350 2    60   ~ 0
 SEGG
+Text Label 9250 5200 2    60   ~ 0
+SEGF
 Text Label 9250 6450 2    60   ~ 0
+SEGG
+Text Label 9250 6350 2    60   ~ 0
 SEGF
 Wire Wire Line
 	9250 4400 9300 4400
@@ -630,4 +630,12 @@ Wire Notes Line
 	3200 6550 3200 7950
 Text Notes 2150 6700 0    60   ~ 0
 POWER CONNECTIONS
+Wire Wire Line
+	9250 4600 9300 4600
+Text Label 9250 4800 2    60   ~ 0
+DIG0
+Wire Wire Line
+	9250 5750 9300 5750
+Text Label 9250 5950 2    60   ~ 0
+DIG1
 $EndSCHEMATC
