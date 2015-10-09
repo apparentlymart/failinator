@@ -19,6 +19,7 @@
   "author": "Paul Thrasher <pthrasher@saymedia.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "websocket": "^1.0.22",
     "ws": "^0.8.0"

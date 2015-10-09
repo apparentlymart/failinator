@@ -4,8 +4,135 @@
     <meta charset="utf-8" />
     <title>Failinator</title>
 
+    <style>
+
+    body {
+        background-color: black;
+    }
+
+    h1 {
+        color: white;
+
+        font-family: sans-serif;
+        font-size: 550%;
+        font-weight: bold;
+        text-align: center;
+
+        margin: 0.2em;
+    }
+
+
+    div.device {
+        margin: 1em auto;
+        width: 100px;
+    }
+    div.device div.days-since {
+        background-color: white;
+
+        font-family: sans-serif;
+        font-size: 550%;
+        font-weight: bold;
+        text-align: center;
+
+        width: 100%;
+        height: 100px;
+
+        border-radius: 10px 10px 0 0;
+    }
+    div.device div.light {
+        width: 100%;
+        height: 100px;
+    }
+    div.device div.critical {
+        background-color: #8B0000;
+    }
+    div.device div.critical.active {
+        background-color: #FF0000;
+    }
+    div.device div.critical.paging {
+        /*animation: blink 1s steps(2, start) infinite;*/
+        animation: pulsate 1s ease-out;
+        animation-iteration-count: infinite;
+    }
+    @keyframes blink {
+        to {
+            color: #FFFFFF;
+        }
+    }
+    @keyframes pulsate {
+        0% {
+            background-color: #FF0000;
+            box-shadow: 0px 0px 75px 0px #FF0000;
+        }
+        50% {
+            background-color: #8B0000;
+            box-shadow: 0px 0px 10px 0px #FF0000;
+        }
+        100% {
+            background-color: #FF0000;
+            box-shadow: 0px 0px 75px 0px #FF0000;
+        }
+    }
+    div.device div.warning {
+        background-color: #CCCC00;
+    }
+    div.device div.warning.active {
+        background-color: #FFFF33;
+    }
+    div.device div.okay {
+        background-color: #006400;
+        border-radius: 0 0 10px 10px;
+    }
+    div.device div.okay.active {
+        background-color: #00FF00;
+    }
+
+    .days-since.active {
+        box-shadow: 0px 0px 75px 0px #FFFFFF;
+    }
+    .okay.active {
+        box-shadow: 0px 0px 75px 0px #00FF00;
+    }
+    .warning.active {
+        box-shadow: 0px 0px 75px 0px #FFFF33;
+    }
+    .critical.active {
+        box-shadow: 0px 0px 75px 0px #FF0000;
+    }
+
+
+    div.controls {
+        margin: 1em auto;
+        text-align: center;
+    }
+    div.controls button.button {
+        margin: 1em auto;
+        padding: 0.25em;
+
+        outline: transparent;
+
+        color: white;
+        font-weight: bold;
+        font-size: 200%;
+
+        background-color: black;
+        border: 2px solid white;
+        border-radius: 6px;
+    }
+    div.controls button.button:hover {
+        cursor: pointer;
+        background-color: #333;
+    }
+    div.controls button.button:active {
+        cursor: pointer;
+        background-color: #666;
+    }
+
+    </style>
+
 </head>
 <body>
+
 
     <h1>Failinator</h1>
 
@@ -16,64 +143,99 @@
         <div class="light okay"></div>
     </div>
 
+    <div class="controls">
+        <button class="button page">page</button>
+        <button class="button critical">critical</button>
+        <button class="button warning">warning</button>
+        <button class="button okay">okay</button>
+    </div>
+
+
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
     <script>
 
     var here = window.location.host;
     var wsUri = 'ws://' + here + '/';
+    var LAST_ALERT = null;
 
-    var $body = document.getElementsByTagName('body')[0];
-    var $since = document.getElementsByClassName('days-since')[0];
-    var $critical = document.getElementsByClassName('critical')[0];
-    var $warning = document.getElementsByClassName('warning')[0];
-    var $okay = document.getElementsByClassName('okay')[0];
+
+    var $$body = $('body');
+
+    var $$since = $('.days-since');
+    var $$critical = $('div.device .critical');
+    var $$warning = $('div.device .warning');
+    var $$okay = $('div.device .okay');
+
+    var $$btnPage = $('div.controls button.page');
+    var $$btnCritical = $('div.controls button.critical');
+    var $$btnWarning = $('div.controls button.warning');
+    var $$btnOkay = $('div.controls button.okay');
+
+
+    function clientMessage (warning, critical, paging) {
+        var out = {
+            warning: warning,
+            critical: critical,
+            paging: paging,
+        };
+        console.log('clientMessage', out);
+        return JSON.stringify(out);
+    }
 
     function updatePage (critical, warning, paging, lastAlert) {
         console.log('update', critical, warning, paging, lastAlert);
 
         var now = Math.floor(Date.now() / 1000);
+        var diff = Math.abs(Math.floor((now - lastAlert) / 8600));
 
-        $since.innerHTML = Math.abs(Math.floor((now - lastAlert) / 8600));
+        $$since.html(diff);
 
         if (!critical && !warning && !paging) {
-            $okay.className = 'light okay active';
+            $$okay.addClass('active');
             console.log('okay active');
         } else {
-            $okay.className = 'light okay';
+            $$okay.removeClass('active');
         }
 
         if (warning) {
-            $warning.className = 'light warning active';
+            $$warning.addClass('active');
             console.log('warning active');
         } else {
-            $warning.className = 'light warning';
+            $$warning.removeClass('active');
         }
 
         if (critical) {
-            $critical.className = 'light critical active';
+            $$critical.addClass('active');
             console.log('critical active');
         } else {
-            $critical.className = 'light critical';
+            $$critical.removeClass('active');
         }
 
         if (paging) {
-            $critical.className = 'light critical paging';
+            $$critical.addClass('paging');
             console.log('paging active');
         } else {
-            $critical.className = 'light critical';
+            $$critical.removeClass('paging');
         }
     }
 
+
     function onOpen (event) {
         console.log('open', event);
+
+        $$since.addClass('active');
     }
     function onClose (event) {
         console.log('close', event);
 
         // reset everything
-        $since.innerHTML = '_';
-        $okay.className = 'light okay';
-        $warning.className = 'light warning';
-        $critical.className = 'light critical';
+        $$since.html('_');
+        $$since.removeClass('active');
+        $$okay.removeClass('active');
+        $$warning.removeClass('active');
+        $$critical.removeClass('active');
+        $$critical.removeClass('paging');
 
         setTimeout(init, 1000);
     }
@@ -91,8 +253,10 @@
         console.error('error', event);
     }
 
+
     function init () {
         var websocket = new WebSocket(wsUri);
+
 
         websocket.onopen = function(evt) {
             onOpen(evt);
@@ -107,6 +271,21 @@
             onError(evt);
         };
 
+
+        $$btnPage.on('click', function () {
+            websocket.send(clientMessage(true, true, true));
+        });
+        $$btnCritical.on('click', function () {
+            websocket.send(clientMessage(true, true, false));
+        });
+        $$btnWarning.on('click', function () {
+            websocket.send(clientMessage(true, false, false));
+        });
+        $$btnOkay.on('click', function () {
+            websocket.send(clientMessage(false, false, false));
+        });
+
+
         console.log('init');
     }
 
@@ -114,67 +293,5 @@
 
     </script>
 
-    <style>
-    body {
-        background-color: black;
-    }
-
-    h1 {
-        color: white;
-
-        font-family: sans-serif;
-        font-size: 550%;
-        font-weight: bold;
-        text-align: center;
-
-        margin: 0.2em;
-    }
-    div.device {
-        margin: 1em auto;
-        width: 100px;
-    }
-    div.days-since {
-        background-color: white;
-
-        font-family: sans-serif;
-        font-size: 550%;
-        font-weight: bold;
-        text-align: center;
-
-        width: 100%;
-        height: 100px;
-    }
-    div.light {
-        width: 100%;
-        height: 100px;
-    }
-    div.critical {
-        background-color: #8B0000;
-    }
-    div.critical.active {
-        background-color: #FF0000;
-    }
-    div.critical.paging {
-        animation: blink 1s steps(2, start) infinite;
-    }
-    @keyframes blink {
-        to { color: #DC143C; }
-    }
-    div.warning {
-        background-color: #CCCC00;
-    }
-    div.warning.active {
-        background-color: #FFFF33;
-    }
-    div.okay {
-        background-color: #006400;
-    }
-    div.okay.active {
-        background-color: #00FF00;
-    }
-    .active {
-        box-shadow: 0px 0px 61px 0px rgba(255,255,255,1);
-    }
-    </style>
 </body>
 </html>

@@ -7,8 +7,8 @@ var ws = new WebSocket('ws://localhost:' + SERVER_PORT);
 
 function clientMessage (warning, critical, paging) {
     var out = {
-        critical: critical,
         warning: warning,
+        critical: critical,
         paging: paging,
     };
     console.log('[server] clientMessage', out);
@@ -23,7 +23,9 @@ function write (warning, critical, paging, interval) {
 ws.on('open', function open() {
     ws.send(clientMessage(true, false, false));
 
-    write(true, false, false, 12);
-    write(true, true, false, 14);
-    write(true, true, true, 18);
+    // write(true, false, false, 12); // warning
+    // write(true, true, false, 14); // critical
+    // write(true, true, true, 18); // paging
+    // write(false, false, false, 20); // okay
 });
+
