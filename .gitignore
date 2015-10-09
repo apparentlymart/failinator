@@ -1,0 +1,5 @@
+
+*.pyc
+server/node_modules/*
+server/.last_alert
+npm-debug.log

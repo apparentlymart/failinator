@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8" />
+    <title>Failinator</title>
+
+</head>
+<body>
+
+    <h1>Failinator</h1>
+
+    <div class="device">
+        <div class="days-since">_</div>
+        <div class="light critical"></div>
+        <div class="light warning"></div>
+        <div class="light okay"></div>
+    </div>
+
+    <script>
+
+    var here = window.location.host;
+    var wsUri = 'ws://' + here + '/';
+
+    var $body = document.getElementsByTagName('body')[0];
+    var $since = document.getElementsByClassName('days-since')[0];
+    var $critical = document.getElementsByClassName('critical')[0];
+    var $warning = document.getElementsByClassName('warning')[0];
+    var $okay = document.getElementsByClassName('okay')[0];
+
+    function updatePage (critical, warning, paging, lastAlert) {
+        console.log('update', critical, warning, paging, lastAlert);
+
+        var now = Math.floor(Date.now() / 1000);
+
+        $since.innerHTML = Math.abs(Math.floor((now - lastAlert) / 8600));
+
+        if (!critical && !warning && !paging) {
+            $okay.className = 'light okay active';
+            console.log('okay active');
+        } else {
+            $okay.className = 'light okay';
+        }
+
+        if (warning) {
+            $warning.className = 'light warning active';
+            console.log('warning active');
+        } else {
+            $warning.className = 'light warning';
+        }
+
+        if (critical) {
+            $critical.className = 'light critical active';
+            console.log('critical active');
+        } else {
+            $critical.className = 'light critical';
+        }
+
+        if (paging) {
+            $critical.className = 'light critical paging';
+            console.log('paging active');
+        } else {
+            $critical.className = 'light critical';
+        }
+    }
+
+    function onOpen (event) {
+        console.log('open', event);
+    }
+    function onClose (event) {
+        console.log('close', event);
+
+        // reset everything
+        $since.innerHTML = '_';
+        $okay.className = 'light okay';
+        $warning.className = 'light warning';
+        $critical.className = 'light critical';
+
+        setTimeout(init, 1000);
+    }
+    function onMessage (event) {
+        var data = null;
+        try {
+            data = JSON.parse(event.data);
+        } catch (e) {
+            data = event.data;
+        }
+        console.log('message', data);
+        updatePage(data.critical, data.warning, data.paging, data.lastAlert);
+    }
+    function onError (event) {
+        console.error('error', event);
+    }
+
+    function init () {
+        var websocket = new WebSocket(wsUri);
+
+        websocket.onopen = function(evt) {
+            onOpen(evt);
+        };
+        websocket.onclose = function(evt) {
+            onClose(evt);
+        };
+        websocket.onmessage = function(evt) {
+            onMessage(evt);
+        };
+        websocket.onerror = function(evt) {
+            onError(evt);
+        };
+
+        console.log('init');
+    }
+
+    init();
+
+    </script>
+
+    <style>
+    body {
+        background-color: black;
+    }
+
+    h1 {
+        color: white;
+
+        font-family: sans-serif;
+        font-size: 550%;
+        font-weight: bold;
+        text-align: center;
+
+        margin: 0.2em;
+    }
+    div.device {
+        margin: 1em auto;
+        width: 100px;
+    }
+    div.days-since {
+        background-color: white;
+
+        font-family: sans-serif;
+        font-size: 550%;
+        font-weight: bold;
+        text-align: center;
+
+        width: 100%;
+        height: 100px;
+    }
+    div.light {
+        width: 100%;
+        height: 100px;
+    }
+    div.critical {
+        background-color: #8B0000;
+    }
+    div.critical.active {
+        background-color: #FF0000;
+    }
+    div.critical.paging {
+        animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink {
+        to { color: #DC143C; }
+    }
+    div.warning {
+        background-color: #CCCC00;
+    }
+    div.warning.active {
+        background-color: #FFFF33;
+    }
+    div.okay {
+        background-color: #006400;
+    }
+    div.okay.active {
+        background-color: #00FF00;
+    }
+    .active {
+        box-shadow: 0px 0px 61px 0px rgba(255,255,255,1);
+    }
+    </style>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "failinator-server",
+  "version": "0.0.1",
+  "description": "A server for the Failinator hackathon project.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@saymedia.git.beanstalkapp.com:/saymedia/failinator.git"
+  },
+  "keywords": [
+    "fail",
+    "monitoring",
+    "server"
+  ],
+  "author": "Paul Thrasher <pthrasher@saymedia.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "websocket": "^1.0.22",
+    "ws": "^0.8.0"
+  }
+}
