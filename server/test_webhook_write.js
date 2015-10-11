@@ -51,12 +51,12 @@ function write (status, interval) {
 
 setTimeout(function () {
 
-  testWebhook('okay');
+  // testWebhook('startup');
 
-  write('critical', 12);
-  write('ack', 14);
-  write('warning', 16);
-  write('resolved', 20);
+  // write('critical', 12);
+  // write('ack', 14);
+  // write('warning', 16);
+  // write('resolved', 20);
 
 }, 3000);
 

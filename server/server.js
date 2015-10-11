@@ -28,6 +28,10 @@ app.get('/', function(req, res){
 });
 
 // Api
+app.get('/api/webhook', function (req, res) {
+    res.setHeader('Content-Type', 'text/html');
+    res.end('This endpoint only accepts POST requests.');
+});
 app.post('/api/webhook', function (req, res) {
     console.log('[server] webhook', req.body);
     var type = req.body.message_type;
