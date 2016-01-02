@@ -38,7 +38,7 @@ encoding utf-8
 Sheet 1 1
 Title "Failinator"
 Date ""
-Rev ""
+Rev "v0.2"
 Comp ""
 Comment1 ""
 Comment2 ""
