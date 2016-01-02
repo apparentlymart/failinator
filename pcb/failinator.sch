@@ -111,10 +111,8 @@ Wire Wire Line
 	2350 2250 2400 2250
 Wire Wire Line
 	2350 2350 2400 2350
-Text Label 2400 3750 0    60   ~ 0
+Text Label 2400 2050 0    60   ~ 0
 DISP_CS
-Wire Wire Line
-	2350 3750 2400 3750
 Text Label 2400 1450 0    60   ~ 0
 RED_L
 Text Label 2400 1550 0    60   ~ 0
@@ -319,4 +317,6 @@ Wire Notes Line
 	6800 600  6800 6700
 Wire Notes Line
 	550  5100 6800 5100
+Wire Wire Line
+	2400 2050 2350 2050
 $EndSCHEMATC
