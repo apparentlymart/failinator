@@ -280,11 +280,43 @@ Wire Wire Line
 Wire Wire Line
 	6200 5450 6300 5450
 Wire Notes Line
-	600  6550 6950 6550
-Wire Notes Line
-	6950 6550 6950 5100
-Wire Notes Line
-	6950 5100 600  5100
-Wire Notes Line
 	2950 600  2950 5100
+$Comp
+L LDS-CD16RI U3
+U 1 1 5688764B
+P 7800 5450
+F 0 "U3" H 7100 4900 60  0000 L CNN
+F 1 "LDS-CD16RI" H 8500 4900 60  0000 R CNN
+F 2 "" H 7550 5850 60  0000 C CNN
+F 3 "" H 7550 5850 60  0000 C CNN
+	1    7800 5450
+	1    0    0    -1  
+$EndComp
+Text GLabel 7400 6100 3    60   Output ~ 0
+GND
+Text GLabel 7750 6100 3    60   Output ~ 0
+GND
+$Comp
+L LDS-CD16RI U4
+U 1 1 56887D47
+P 9600 5450
+F 0 "U4" H 8900 4900 60  0000 L CNN
+F 1 "LDS-CD16RI" H 10300 4900 60  0000 R CNN
+F 2 "" H 9350 5850 60  0000 C CNN
+F 3 "" H 9350 5850 60  0000 C CNN
+	1    9600 5450
+	1    0    0    -1  
+$EndComp
+Text GLabel 9200 6100 3    60   Output ~ 0
+GND
+Text GLabel 9550 6100 3    60   Output ~ 0
+GND
+Text Notes 6900 6600 0    60   ~ 0
+7-SEGMENT DISPLAYS
+Wire Notes Line
+	550  6550 6800 6550
+Wire Notes Line
+	6800 600  6800 6700
+Wire Notes Line
+	550  5100 6800 5100
 $EndSCHEMATC
