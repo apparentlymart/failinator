@@ -35,7 +35,7 @@ EELAYER 25 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
-Sheet 1 1
+Sheet 1 4
 Title "Failinator"
 Date ""
 Rev "v0.2"
@@ -388,189 +388,30 @@ Wire Wire Line
 	1350 7450 1400 7450
 Wire Wire Line
 	1350 7550 1400 7550
-$Comp
-L FQU13N06L MOSFET1
-U 1 1 5604F114
-P 1500 5700
-F 0 "MOSFET1" H 1650 6000 60  0000 R CNN
-F 1 "FQU13N06L" V 1900 5700 60  0000 C CNN
-F 2 "failinator:TO-251AA" H 1500 5700 60  0001 C CNN
-F 3 "" H 1500 5700 60  0000 C CNN
-	1    1500 5700
-	1    0    0    -1  
-$EndComp
-Text GLabel 1300 6150 0    60   Input ~ 0
+Text GLabel 1200 5500 0    60   Input ~ 0
 GND
-Text GLabel 1300 4600 0    60   Input ~ 0
+Text GLabel 1200 5000 0    60   Input ~ 0
 +24V
-$Comp
-L R R1
-U 1 1 5604FF36
-P 1800 4950
-F 0 "R1" V 1880 4950 50  0000 C CNN
-F 1 "10k" V 1800 4950 50  0000 C CNN
-F 2 "Discret:R3" V 1730 4950 30  0001 C CNN
-F 3 "" H 1800 4950 30  0000 C CNN
-	1    1800 4950
-	1    0    0    -1  
-$EndComp
-$Comp
-L FQU17P06 MOSFET2
-U 1 1 56050258
-P 2300 5050
-F 0 "MOSFET2" H 2450 5350 60  0000 R CNN
-F 1 "FQU17P06" V 2700 5100 60  0000 C CNN
-F 2 "failinator:TO-251AA" H 2300 5050 60  0001 C CNN
-F 3 "" H 2300 5050 60  0000 C CNN
-	1    2300 5050
-	1    0    0    -1  
-$EndComp
-Text Label 1200 5550 2    60   ~ 0
+Text Label 1200 5250 2    60   ~ 0
 RED_L
-Text Label 2600 5550 3    60   ~ 0
+Text Label 2400 5000 0    60   ~ 0
 RED_P
-Wire Wire Line
-	1800 4800 1800 4600
-Wire Wire Line
-	1800 5100 1800 5300
-Wire Wire Line
-	1200 5550 1350 5550
-Wire Wire Line
-	1300 6150 1800 6150
-Wire Wire Line
-	1800 6150 1800 6100
-Wire Wire Line
-	1300 4600 2600 4600
-Wire Wire Line
-	2600 4600 2600 4650
-Connection ~ 1800 4600
-Wire Wire Line
-	2600 5450 2600 5550
-Wire Wire Line
-	2150 5200 1800 5200
-Connection ~ 1800 5200
-$Comp
-L FQU13N06L MOSFET3
-U 1 1 56051AD8
-P 3850 5700
-F 0 "MOSFET3" H 4000 6000 60  0000 R CNN
-F 1 "FQU13N06L" V 4250 5700 60  0000 C CNN
-F 2 "failinator:TO-251AA" H 3850 5700 60  0001 C CNN
-F 3 "" H 3850 5700 60  0000 C CNN
-	1    3850 5700
-	1    0    0    -1  
-$EndComp
-Text GLabel 3650 6150 0    60   Input ~ 0
+Text GLabel 3750 5500 0    60   Input ~ 0
 GND
-Text GLabel 3650 4600 0    60   Input ~ 0
+Text GLabel 3750 5000 0    60   Input ~ 0
 +24V
-$Comp
-L R R2
-U 1 1 56051AE0
-P 4150 4950
-F 0 "R2" V 4230 4950 50  0000 C CNN
-F 1 "10k" V 4150 4950 50  0000 C CNN
-F 2 "Discret:R3" V 4080 4950 30  0001 C CNN
-F 3 "" H 4150 4950 30  0000 C CNN
-	1    4150 4950
-	1    0    0    -1  
-$EndComp
-$Comp
-L FQU17P06 MOSFET4
-U 1 1 56051AE6
-P 4650 5050
-F 0 "MOSFET4" H 4800 5350 60  0000 R CNN
-F 1 "FQU17P06" V 5050 5100 60  0000 C CNN
-F 2 "failinator:TO-251AA" H 4650 5050 60  0001 C CNN
-F 3 "" H 4650 5050 60  0000 C CNN
-	1    4650 5050
-	1    0    0    -1  
-$EndComp
-Text Label 3550 5550 2    60   ~ 0
+Text Label 3750 5250 2    60   ~ 0
 AMBER_L
-Text Label 4950 5550 3    60   ~ 0
+Text Label 4950 5000 0    60   ~ 0
 AMBER_P
-Wire Wire Line
-	4150 4800 4150 4600
-Wire Wire Line
-	4150 5100 4150 5300
-Wire Wire Line
-	3550 5550 3700 5550
-Wire Wire Line
-	3650 6150 4150 6150
-Wire Wire Line
-	4150 6150 4150 6100
-Wire Wire Line
-	3650 4600 4950 4600
-Wire Wire Line
-	4950 4600 4950 4650
-Connection ~ 4150 4600
-Wire Wire Line
-	4950 5450 4950 5550
-Wire Wire Line
-	4500 5200 4150 5200
-Connection ~ 4150 5200
-$Comp
-L FQU13N06L MOSFET5
-U 1 1 56051BEF
-P 6300 5700
-F 0 "MOSFET5" H 6450 6000 60  0000 R CNN
-F 1 "FQU13N06L" V 6700 5700 60  0000 C CNN
-F 2 "failinator:TO-251AA" H 6300 5700 60  0001 C CNN
-F 3 "" H 6300 5700 60  0000 C CNN
-	1    6300 5700
-	1    0    0    -1  
-$EndComp
-Text GLabel 6100 6150 0    60   Input ~ 0
+Text GLabel 6300 5500 0    60   Input ~ 0
 GND
-Text GLabel 6100 4600 0    60   Input ~ 0
+Text GLabel 6300 5000 0    60   Input ~ 0
 +24V
-$Comp
-L R R3
-U 1 1 56051BF7
-P 6600 4950
-F 0 "R3" V 6680 4950 50  0000 C CNN
-F 1 "10k" V 6600 4950 50  0000 C CNN
-F 2 "Discret:R3" V 6530 4950 30  0001 C CNN
-F 3 "" H 6600 4950 30  0000 C CNN
-	1    6600 4950
-	1    0    0    -1  
-$EndComp
-$Comp
-L FQU17P06 MOSFET6
-U 1 1 56051BFD
-P 7100 5050
-F 0 "MOSFET6" H 7250 5350 60  0000 R CNN
-F 1 "FQU17P06" V 7500 5100 60  0000 C CNN
-F 2 "failinator:TO-251AA" H 7100 5050 60  0001 C CNN
-F 3 "" H 7100 5050 60  0000 C CNN
-	1    7100 5050
-	1    0    0    -1  
-$EndComp
-Text Label 6000 5550 2    60   ~ 0
+Text Label 6300 5250 2    60   ~ 0
 GREEN_L
-Text Label 7400 5550 3    60   ~ 0
+Text Label 7500 5000 0    60   ~ 0
 GREEN_P
-Wire Wire Line
-	6600 4800 6600 4600
-Wire Wire Line
-	6600 5100 6600 5300
-Wire Wire Line
-	6000 5550 6150 5550
-Wire Wire Line
-	6100 6150 6600 6150
-Wire Wire Line
-	6600 6150 6600 6100
-Wire Wire Line
-	6100 4600 7400 4600
-Wire Wire Line
-	7400 4600 7400 4650
-Connection ~ 6600 4600
-Wire Wire Line
-	7400 5450 7400 5550
-Wire Wire Line
-	6950 5200 6600 5200
-Connection ~ 6600 5200
 Wire Notes Line
 	2950 600  2950 4100
 Wire Notes Line
@@ -638,4 +479,58 @@ Wire Wire Line
 	9250 5750 9300 5750
 Text Label 9250 5950 2    60   ~ 0
 DIG1
+$Sheet
+S 1300 4900 1000 700 
+U 568778A1
+F0 "RedDriver" 60
+F1 "MOSFETDriver.sch" 60
+F2 "VIN" I L 1300 5000 60 
+F3 "GND" I L 1300 5500 60 
+F4 "EN" I L 1300 5250 60 
+F5 "VOUT" O R 2300 5000 60 
+$EndSheet
+Wire Wire Line
+	2300 5000 2400 5000
+Wire Wire Line
+	1200 5000 1300 5000
+Wire Wire Line
+	1200 5250 1300 5250
+Wire Wire Line
+	1200 5500 1300 5500
+$Sheet
+S 3850 4900 1000 700 
+U 56879543
+F0 "AmberDriver" 60
+F1 "MOSFETDriver.sch" 60
+F2 "VIN" I L 3850 5000 60 
+F3 "GND" I L 3850 5500 60 
+F4 "EN" I L 3850 5250 60 
+F5 "VOUT" O R 4850 5000 60 
+$EndSheet
+$Sheet
+S 6400 4900 1000 700 
+U 5687AB7C
+F0 "GreenDriver" 60
+F1 "MOSFETDriver.sch" 60
+F2 "VIN" I L 6400 5000 60 
+F3 "GND" I L 6400 5500 60 
+F4 "EN" I L 6400 5250 60 
+F5 "VOUT" O R 7400 5000 60 
+$EndSheet
+Wire Wire Line
+	3750 5000 3850 5000
+Wire Wire Line
+	3750 5250 3850 5250
+Wire Wire Line
+	3750 5500 3850 5500
+Wire Wire Line
+	4850 5000 4950 5000
+Wire Wire Line
+	6300 5000 6400 5000
+Wire Wire Line
+	6300 5250 6400 5250
+Wire Wire Line
+	6300 5500 6400 5500
+Wire Wire Line
+	7400 5000 7500 5000
 $EndSCHEMATC
