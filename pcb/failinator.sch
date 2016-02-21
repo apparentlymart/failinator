@@ -189,10 +189,6 @@ F 3 "" H 6900 5650 60  0000 C CNN
 	1    7150 5250
 	1    0    0    -1  
 $EndComp
-Text GLabel 6750 5900 3    60   Output ~ 0
-GND
-Text GLabel 7100 5900 3    60   Output ~ 0
-GND
 $Comp
 L LDS-CD16RI U4
 U 1 1 56887D47
@@ -204,22 +200,14 @@ F 3 "" H 8700 5650 60  0000 C CNN
 	1    8950 5250
 	1    0    0    -1  
 $EndComp
-Text GLabel 8550 5900 3    60   Output ~ 0
-GND
-Text GLabel 8900 5900 3    60   Output ~ 0
-GND
 Text Notes 7550 1050 0    60   ~ 0
 7-SEGMENT DISPLAYS
-Text GLabel 8050 4650 3    60   Input ~ 0
-GND
-Text GLabel 8050 3450 1    60   Input ~ 0
-+24V
 $Sheet
 S 6300 3500 3500 1050
 U 5694859C
 F0 "DisplayDrivers" 60
 F1 "DisplayDrivers.sch" 60
-F2 "VIN" I T 8050 3500 60 
+F2 "VIN" I T 7850 3500 60 
 F3 "GND" I B 8050 4550 60 
 F4 "A0_L" I T 6450 3500 60 
 F5 "B0_L" I T 6650 3500 60 
@@ -272,31 +260,19 @@ F 3 "" H 8800 2100 60  0000 C CNN
 	1    9250 2150
 	1    0    0    -1  
 $EndComp
-Text GLabel 7400 2800 2    60   Input ~ 0
-GND
-Text GLabel 6850 1450 1    60   Input ~ 0
-+3V3
-Text GLabel 9250 1450 1    60   Input ~ 0
-+3V3
-Text GLabel 9750 2800 3    60   Input ~ 0
-GND
 NoConn ~ 9550 2750
 NoConn ~ 7150 2750
 NoConn ~ 10150 1900
 Text Label 5900 1900 2    60   ~ 0
-MOSI
+D_MOSI
 Text Label 5900 2050 2    60   ~ 0
-SCLK
+D_SCLK
 Text Label 5900 2150 2    60   ~ 0
-DISP_CS
+D_DISP_CS
 Text Label 8300 2050 2    60   ~ 0
-SCLK
+D_SCLK
 Text Label 8300 2150 2    60   ~ 0
-DISP_CS
-Text GLabel 8050 2800 3    60   Input ~ 0
-+3V3
-Text GLabel 5850 2850 3    60   Input ~ 0
-+3V3
+D_DISP_CS
 $Comp
 L R R18
 U 1 1 56957A98
@@ -447,8 +423,6 @@ Wire Wire Line
 Wire Wire Line
 	9450 4550 9450 4650
 Wire Wire Line
-	8050 3450 8050 3500
-Wire Wire Line
 	6450 3500 6450 2750
 Wire Wire Line
 	6550 2750 6550 3400
@@ -574,4 +548,102 @@ Wire Notes Line
 	1900 6800 1900 7950
 Wire Notes Line
 	3350 6800 3350 7950
+$Comp
+L CONN_01X06 P3
+U 1 1 56C94215
+P 5600 7500
+F 0 "P3" H 5677 7538 50  0000 L CNN
+F 1 "CONN_01X06" H 5677 7446 50  0000 L CNN
+F 2 "" H 5600 7500 50  0000 C CNN
+F 3 "" H 5600 7500 50  0000 C CNN
+	1    5600 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X06 P2
+U 1 1 56C942DE
+P 4200 7500
+F 0 "P2" H 4277 7538 50  0000 L CNN
+F 1 "CONN_01X06" H 4277 7446 50  0000 L CNN
+F 2 "" H 4200 7500 50  0000 C CNN
+F 3 "" H 4200 7500 50  0000 C CNN
+	1    4200 7500
+	1    0    0    -1  
+$EndComp
+Text GLabel 3900 7750 0    60   Input ~ 0
++24V
+Text GLabel 3900 7650 0    60   Input ~ 0
+GND
+Text GLabel 3900 7550 0    60   Input ~ 0
++3V3
+Text Label 3900 7450 2    60   ~ 0
+MOSI
+Text Label 3900 7350 2    60   ~ 0
+DISP_CS
+Text Label 3900 7250 2    60   ~ 0
+SCLK
+Wire Wire Line
+	3900 7250 4000 7250
+Wire Wire Line
+	3900 7350 4000 7350
+Wire Wire Line
+	3900 7450 4000 7450
+Wire Wire Line
+	3900 7550 4000 7550
+Wire Wire Line
+	3900 7650 4000 7650
+Wire Wire Line
+	3900 7750 4000 7750
+Text Label 5300 7250 2    60   ~ 0
+D_SCLK
+Text Label 5300 7350 2    60   ~ 0
+D_DISP_CS
+Text Label 5300 7450 2    60   ~ 0
+D_MOSI
+Text Label 5300 7550 2    60   ~ 0
+D_+3V3
+Text Label 5300 7650 2    60   ~ 0
+D_GND
+Text Label 5300 7750 2    60   ~ 0
+D_+24V
+Wire Wire Line
+	5300 7250 5400 7250
+Wire Wire Line
+	5300 7350 5400 7350
+Wire Wire Line
+	5300 7450 5400 7450
+Wire Wire Line
+	5300 7550 5400 7550
+Wire Wire Line
+	5300 7650 5400 7650
+Wire Wire Line
+	5300 7750 5400 7750
+Text Notes 4150 7000 0    60   ~ 0
+7SEG DISPLAY CONNECTIONS
+Text Label 6850 1450 1    60   ~ 0
+D_+3V3
+Text Label 9250 1450 1    60   ~ 0
+D_+3V3
+Text Label 5850 2850 3    60   ~ 0
+D_+3V3
+Text Label 8050 2800 3    60   ~ 0
+D_+3V3
+Text Label 7850 3450 1    60   ~ 0
+D_+24V
+Wire Wire Line
+	7850 3450 7850 3500
+Text Label 7400 2800 0    60   ~ 0
+D_GND
+Text Label 9750 2800 3    60   ~ 0
+D_GND
+Text Label 6750 5900 3    60   ~ 0
+D_GND
+Text Label 7100 5900 3    60   ~ 0
+D_GND
+Text Label 8550 5900 3    60   ~ 0
+D_GND
+Text Label 8900 5900 3    60   ~ 0
+D_GND
+Text Label 8050 4650 3    60   ~ 0
+D_GND
 $EndSCHEMATC
