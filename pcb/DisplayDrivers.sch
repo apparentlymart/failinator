@@ -213,19 +213,19 @@ Text HLabel 1750 5550 0    60   Input ~ 0
 F0_L
 Text HLabel 1750 6350 0    60   Input ~ 0
 G0_L
-Text HLabel 3000 1400 2    60   Output ~ 0
+Text HLabel 3300 1400 2    60   Output ~ 0
 A0_P
-Text HLabel 3000 2200 2    60   Output ~ 0
+Text HLabel 3300 2200 2    60   Output ~ 0
 B0_P
-Text HLabel 3000 3000 2    60   Output ~ 0
+Text HLabel 3300 3000 2    60   Output ~ 0
 C0_P
-Text HLabel 3000 3800 2    60   Output ~ 0
+Text HLabel 3300 3800 2    60   Output ~ 0
 D0_P
-Text HLabel 3000 4600 2    60   Output ~ 0
+Text HLabel 3300 4600 2    60   Output ~ 0
 E0_P
-Text HLabel 3000 5400 2    60   Output ~ 0
+Text HLabel 3300 5400 2    60   Output ~ 0
 F0_P
-Text HLabel 3000 6200 2    60   Output ~ 0
+Text HLabel 3300 6200 2    60   Output ~ 0
 G0_P
 $Sheet
 S 4300 1300 1050 500 
@@ -395,18 +395,172 @@ Text HLabel 4200 5550 0    60   Input ~ 0
 F1_L
 Text HLabel 4200 6350 0    60   Input ~ 0
 G1_L
-Text HLabel 5450 1400 2    60   Output ~ 0
+Text HLabel 5750 1400 2    60   Output ~ 0
 A1_P
-Text HLabel 5450 2200 2    60   Output ~ 0
+Text HLabel 5750 2200 2    60   Output ~ 0
 B1_P
-Text HLabel 5450 3000 2    60   Output ~ 0
+Text HLabel 5750 3000 2    60   Output ~ 0
 C1_P
-Text HLabel 5450 3800 2    60   Output ~ 0
+Text HLabel 5750 3800 2    60   Output ~ 0
 D1_P
-Text HLabel 5450 4600 2    60   Output ~ 0
+Text HLabel 5750 4600 2    60   Output ~ 0
 E1_P
-Text HLabel 5450 5400 2    60   Output ~ 0
+Text HLabel 5750 5400 2    60   Output ~ 0
 F1_P
-Text HLabel 5450 6200 2    60   Output ~ 0
+Text HLabel 5750 6200 2    60   Output ~ 0
 G1_P
+$Comp
+L R R50
+U 1 1 56CA080D
+P 3150 1400
+F 0 "R50" V 2942 1400 50  0000 C CNN
+F 1 "150" V 3034 1400 50  0000 C CNN
+F 2 "Discret:R3" V 3080 1400 50  0001 C CNN
+F 3 "" H 3150 1400 50  0000 C CNN
+	1    3150 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L R R51
+U 1 1 56CA15A3
+P 3150 2200
+F 0 "R51" V 2942 2200 50  0000 C CNN
+F 1 "150" V 3034 2200 50  0000 C CNN
+F 2 "Discret:R3" V 3080 2200 50  0001 C CNN
+F 3 "" H 3150 2200 50  0000 C CNN
+	1    3150 2200
+	0    1    1    0   
+$EndComp
+$Comp
+L R R52
+U 1 1 56CA1C7E
+P 3150 3000
+F 0 "R52" V 2942 3000 50  0000 C CNN
+F 1 "150" V 3034 3000 50  0000 C CNN
+F 2 "Discret:R3" V 3080 3000 50  0001 C CNN
+F 3 "" H 3150 3000 50  0000 C CNN
+	1    3150 3000
+	0    1    1    0   
+$EndComp
+$Comp
+L R R53
+U 1 1 56CA2213
+P 3150 3800
+F 0 "R53" V 2942 3800 50  0000 C CNN
+F 1 "150" V 3034 3800 50  0000 C CNN
+F 2 "Discret:R3" V 3080 3800 50  0001 C CNN
+F 3 "" H 3150 3800 50  0000 C CNN
+	1    3150 3800
+	0    1    1    0   
+$EndComp
+$Comp
+L R R54
+U 1 1 56CA2B0B
+P 3150 4600
+F 0 "R54" V 2942 4600 50  0000 C CNN
+F 1 "150" V 3034 4600 50  0000 C CNN
+F 2 "Discret:R3" V 3080 4600 50  0001 C CNN
+F 3 "" H 3150 4600 50  0000 C CNN
+	1    3150 4600
+	0    1    1    0   
+$EndComp
+$Comp
+L R R55
+U 1 1 56CA2F5E
+P 3150 5400
+F 0 "R55" V 2942 5400 50  0000 C CNN
+F 1 "150" V 3034 5400 50  0000 C CNN
+F 2 "Discret:R3" V 3080 5400 50  0001 C CNN
+F 3 "" H 3150 5400 50  0000 C CNN
+	1    3150 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L R R56
+U 1 1 56CA35C0
+P 3150 6200
+F 0 "R56" V 2942 6200 50  0000 C CNN
+F 1 "150" V 3034 6200 50  0000 C CNN
+F 2 "Discret:R3" V 3080 6200 50  0001 C CNN
+F 3 "" H 3150 6200 50  0000 C CNN
+	1    3150 6200
+	0    1    1    0   
+$EndComp
+$Comp
+L R R60
+U 1 1 56CA4259
+P 5600 1400
+F 0 "R60" V 5392 1400 50  0000 C CNN
+F 1 "150" V 5484 1400 50  0000 C CNN
+F 2 "Discret:R3" V 5530 1400 50  0001 C CNN
+F 3 "" H 5600 1400 50  0000 C CNN
+	1    5600 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L R R61
+U 1 1 56CA46E5
+P 5600 2200
+F 0 "R61" V 5392 2200 50  0000 C CNN
+F 1 "150" V 5484 2200 50  0000 C CNN
+F 2 "Discret:R3" V 5530 2200 50  0001 C CNN
+F 3 "" H 5600 2200 50  0000 C CNN
+	1    5600 2200
+	0    1    1    0   
+$EndComp
+$Comp
+L R R62
+U 1 1 56CA4E36
+P 5600 3000
+F 0 "R62" V 5392 3000 50  0000 C CNN
+F 1 "150" V 5484 3000 50  0000 C CNN
+F 2 "Discret:R3" V 5530 3000 50  0001 C CNN
+F 3 "" H 5600 3000 50  0000 C CNN
+	1    5600 3000
+	0    1    1    0   
+$EndComp
+$Comp
+L R R63
+U 1 1 56CA52B4
+P 5600 3800
+F 0 "R63" V 5392 3800 50  0000 C CNN
+F 1 "150" V 5484 3800 50  0000 C CNN
+F 2 "Discret:R3" V 5530 3800 50  0001 C CNN
+F 3 "" H 5600 3800 50  0000 C CNN
+	1    5600 3800
+	0    1    1    0   
+$EndComp
+$Comp
+L R R64
+U 1 1 56CA5A0F
+P 5600 4600
+F 0 "R64" V 5392 4600 50  0000 C CNN
+F 1 "150" V 5484 4600 50  0000 C CNN
+F 2 "Discret:R3" V 5530 4600 50  0001 C CNN
+F 3 "" H 5600 4600 50  0000 C CNN
+	1    5600 4600
+	0    1    1    0   
+$EndComp
+$Comp
+L R R65
+U 1 1 56CA6240
+P 5600 5400
+F 0 "R65" V 5392 5400 50  0000 C CNN
+F 1 "150" V 5484 5400 50  0000 C CNN
+F 2 "Discret:R3" V 5530 5400 50  0001 C CNN
+F 3 "" H 5600 5400 50  0000 C CNN
+	1    5600 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L R R66
+U 1 1 56CA69AD
+P 5600 6200
+F 0 "R66" V 5392 6200 50  0000 C CNN
+F 1 "150" V 5484 6200 50  0000 C CNN
+F 2 "Discret:R3" V 5530 6200 50  0001 C CNN
+F 3 "" H 5600 6200 50  0000 C CNN
+	1    5600 6200
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
