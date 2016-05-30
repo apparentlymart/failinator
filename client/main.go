@@ -78,28 +78,6 @@ type Digits struct {
 }
 
 func (d *Digits) sendByte(b byte) error {
-	for i := 8; i > 0; i-- {
-		mask := byte(1 << byte(i-1))
-
-		err := d.clkPin.Write(0)
-		if err != nil {
-			return err
-		}
-
-		if b&mask != 0 {
-			err = d.mosiPin.Write(1)
-		} else {
-			err = d.mosiPin.Write(0)
-		}
-		if err != nil {
-			return err
-		}
-
-		err = d.clkPin.Write(1)
-		if err != nil {
-			return err
-		}
-	}
 
 	return nil
 }
@@ -113,7 +91,7 @@ func OpenDigits() (*Digits, error) {
 	if err != nil {
 		return nil, err
 	}
-	csPin, err := embd.NewDigitalPin(25)
+	csPin, err := embd.NewDigitalPin(8)
 	if err != nil {
 		return nil, err
 	}
@@ -142,7 +120,7 @@ func (d *Digits) Close() error {
 	return nil
 }
 
-func (d *Digits) set(register byte, value byte) error {
+func (d *Digits) write(val uint16) error {
 	err := d.csPin.Write(embd.High)
 	if err != nil {
 		return err
@@ -151,42 +129,50 @@ func (d *Digits) set(register byte, value byte) error {
 	if err != nil {
 		return err
 	}
-	err = d.sendByte(register)
-	if err != nil {
-		return err
+
+	for i := 16; i > 0; i-- {
+		mask := uint16(1 << uint16(i-1))
+
+		err := d.clkPin.Write(0)
+		if err != nil {
+			return err
+		}
+
+		if val&mask != 0 {
+			err = d.mosiPin.Write(1)
+		} else {
+			err = d.mosiPin.Write(0)
+		}
+		if err != nil {
+			return err
+		}
+
+		err = d.clkPin.Write(1)
+		if err != nil {
+			return err
+		}
 	}
-	err = d.sendByte(value)
-	if err != nil {
-		return err
-	}
+
 	err = d.csPin.Write(embd.High)
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
 
 func (d *Digits) Try() error {
-	err := d.csPin.Write(embd.High)
-	if err != nil {
-		return err
-	}
-
-	err = d.set(0xb, 1)
-	if err != nil {
-		return err
-	}
-	err = d.set(0xc, 0)
-	if err != nil {
-		return err
-	}
-	err = d.set(0xf, 1)
-	if err != nil {
-		return err
-	}
-	err = d.set(0xa, 31)
-	if err != nil {
-		return err
+	for {
+		err := d.write(0xffff)
+		if err != nil {
+			return err
+		}
+		time.Sleep(1000 * time.Millisecond)
+		err = d.write(0x0000)
+		if err != nil {
+			return err
+		}
+		time.Sleep(1000 * time.Millisecond)
 	}
 	return nil
 }
@@ -197,11 +183,24 @@ func hardware() {
 	}
 	defer embd.CloseGPIO()
 
+	if err := embd.InitSPI(); err != nil {
+		panic(err)
+	}
+	defer embd.CloseSPI()
+
 	lights, err := OpenLights()
 	if err != nil {
 		panic(err)
 	}
 	defer lights.Close()
+
+	digits, err := OpenDigits()
+	if err != nil {
+		panic(err)
+	}
+	defer digits.Close()
+
+	go digits.Try()
 
 	for !quit {
 		statusMutex.Lock()
